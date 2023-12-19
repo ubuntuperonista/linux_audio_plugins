@@ -154,6 +154,98 @@ sudo mv Dexed.lv2/ /usr/lib/lv2/ ;
 echo "Volviendo al directorio /home/$USER" ;
 cd ~ ;
 
+## Instala instrumentos VST Clásicos (demos)
+echo "Instalando VST y VST de sintetizadores clásicos y efectos de TAL adicionales..."
+#creación de directorios ;
+mkdir ~/.vst/ ~/.vst3/ ;
+mkdir ~/.vst/tal/ ;
+mkdir /tmp/plugins/ ;
+mkdir /tmp/plugins/presets/ ;
+#TAL-U-NO-LX ;
+mkdir /tmp/plugins/tal_uno/
+cd /tmp/plugins/tal_uno/ ;
+wget https://tal-software.com/downloads/plugins/TAL-U-NO-LX-V2_64_linux.zip ;
+unzip TAL-U-NO-LX-V2_64_linux.zip ;
+mv /tmp/plugins/tal_uno/libTAL-U-NO-LX-V2.so ~/.vst/tal/ ;
+mv /tmp/plugins/tal_uno/TAL-U-NO-LX-V2.vst3/ ~/.vst3/ ;
+##Pack de presets para TAL-U-NO-LX
+mkdir ~/.vst3/TAL-U-NO-LX-V2.vst3/Contents/Resources/
+cd ~/.vst3/TAL-U-NO-LX-V2.vst3/Contents/Resources/
+wget https://tal-software.com//downloads/presets/Fantomatica_Presets.zip ;
+wget https://tal-software.com//downloads/presets/Symbiotic_Sounds_Presets_for_TAL-U-NO-LX-V2.zip ;
+wget https://tal-software.com/downloads/presets/FMR%20Factory%20Presets%20Bank.zip ;
+wget https://tal-software.com/downloads/presets/Krezie-Synthwave-for-TAL-U-NO-LX.zip ;
+wget https://tal-software.com/downloads/presets/Tronsonic%20Presets%20Bank%20.zip ;
+wget https://tal-software.com/downloads/presets/Orion-106.zip ;
+wget https://tal-software.com/downloads/presets/TwolegsToneworks_-_TAL-U-No-LX_Bank.zip ;
+unzip Fantomatica_Presets.zip ;
+unzip Symbiotic_Sounds_Presets_for_TAL-U-NO-LX-V2.zip ;
+unzip FMR%20Factory%20Presets%20Bank.zip ;
+unzip Krezie-Synthwave-for-TAL-U-NO-LX.zip ;
+unzip Tronsonic%20Presets%20Bank%20.zip ;
+unzip Orion-106.zip ;
+unzip TwolegsToneworks_-_TAL-U-No-LX_Bank.zip ;
+rm ~/.vst3/TAL-U-NO-LX-V2.vst3/Contents/Resources/*.zip ;
+#TAL-J-8
+mkdir /tmp/plugins/tal_j8/ ;
+cd /tmp/plugins/tal_j8/ ;
+wget https://tal-software.com/downloads/plugins/TAL-J-8_64_linux.zip ;
+unzip TAL-J-8_64_linux.zip ;
+mv /tmp/plugins/tal_j8/libTAL-J-8.so ~/.vst/tal/ ;
+mv /tmp/plugins/tal_j8/TAL-J-8.vst3/ ~/.vst3/ ;
+##Pack de presets para TAL-J-8 ;
+mkdir ~/.vst3/TAL-J-8.vst3/Contents/Resources/ ;
+cd ~/.vst3/TAL-J-8.vst3/Contents/Resources/ ;
+wget https://tal-software.com/downloads/presets/tal-j-8_factorypresets.zip ;
+wget https://tal-software.com/downloads/presets/TAL%20J-8%20Presets%20by%20Heat%20Audio.zip ;
+wget https://tal-software.com/downloads/presets/Funkybots_TAL_J-8_Presets.zip ;
+wget https://tal-software.com/downloads/presets/Xenos_Soundworks_TAL-J-8.zip ;
+wget https://www.dropbox.com/s/xpwy6b20x96rnmo/Realistortion%27s%20Preset%20Pack.rar ;
+unrar x Realistortion\'s\ Preset\ Pack.rar ;
+unzip Funkybots_TAL_J-8_Presets.zip ;
+unzip 'TAL J-8 Presets by Heat Audio.zip' ;
+unzip 'TAL-J-8 - Saif Sameer [72 presets].zip' ;
+unzip tal-j-8_factorypresets.zip ;
+unzip Xenos_Soundworks_TAL-J-8.zip ;
+mkdir ~/.vst3/TAL-J-8.vst3/Contents/Resources/lee/ ;
+mkdir ~/.vst3/TAL-J-8.vst3/Contents/Resources/arcade/ ;
+cd ~/.vst3/TAL-J-8.vst3/Contents/Resources/arcade/ ;
+wget https://tal-software.com/downloads/presets/Arcade%20Summer%20J-8%20Free.zip ;
+unzip Arcade\ Summer\ J-8\ Free.zip ;
+rm Arcade\ Summer\ J-8\ Free.zip ;
+cd ~/.vst3/TAL-J-8.vst3/Contents/Resources/lee/
+wget https://tal-software.com/downloads/presets/lee_TAL_J-8_Presets.zip ;
+unzip lee_TAL_J-8_Presets.zip ;
+rm lee_TAL_J-8_Presets.zip ;
+cd ~/.vst3/TAL-J-8.vst3/Contents/Resources/ ;
+rm *.zip ;
+rm *.rar ;
+rm -r __MACOSX/ ;
+
+##Instala Vaporizer2 para Ubuntu 22.04LTS
+echo "Instalando Vaporizer2 para Ubuntu 22.04LTS..." ;
+mkdir /tmp/vaporizer2/ ;
+cd /tmp/vaporizer2/ ;
+wget https://download.opensuse.org/repositories/multimedia:/proaudio/xUbuntu_22.04/amd64/vaporizer2-lv2_3.4.3+git.6.88bd029-1_amd64.deb ;
+sudo dpkg -i vaporizer2-lv2_3.4.3+git.6.88bd029-1_amd64 ;
+mkdir /tmp/vaporizer2/presets/ /tmp/vaporizer2/manual/ ;
+cd /tmp/manual ; 
+wget https://vast-dynamics.com/sites/default/files/downloads/Vaporizer2Manual.pdf ;
+cd /tmp/vaporizer2/presets/ ;
+wget https://vast-dynamics.com/sites/default/files/downloads/Factory%20Presets.zip https://vast-dynamics.com/sites/default/files/downloads/Preset%20Bank%20by%20Thomas%20Trupiano.zip ;
+wget https://vast-dynamics.com/sites/default/files/downloads/Wavetables%20Vaporizer2%20by%20PietW.zip ;
+unzip 'Wavetables Vaporizer2 by PietW.zip' ;
+unzip 'Factory Presets.zip' ;
+unzip 'Preset Bank by Thomas Trupiano.zip' ;
+mkdir ~/Documentos/Vaporizer2/ ;
+mkdir ~/Documentos/Vaporizer2/Presets/
+mv /tmp/vaporizer2/manual/ ~/Documentos/Vaporizer2/
+mv /tmp/vaporizer2/presets/Analog/ ~/Documentos/Vaporizer2/Tables/ ;
+mv /tmp/vaporizer2/presets/Digital/ ~/Documentos/Vaporizer2/Tables/ ;
+mv /tmp/vaporizer2/presets/Presets/* ~/Documentos/Vaporizer2/Presets ;
+mv /tmp/vaporizer2/presets/Trupiano/Presets/ ~/Documentos/Vaporizer2/Presets/Trupiano ;
+cd ~ ;
+
 ##Una vez instalado los plugins, ya no necesitaremos sus archivos de base, los cuales podremos borrar con:
 
 cd ~/Descargas/plugins/ ;
